@@ -66,13 +66,13 @@ Although many developers still use PHP 5, most of the examples in this article o
 
 ### Use meaningful and pronounceable variable names
 
-**Bad:**
+**Վատ.**
 
 ```php
 $ymdstr = $moment->format('y-m-d');
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 $currentDate = $moment->format('y-m-d');
@@ -82,7 +82,7 @@ $currentDate = $moment->format('y-m-d');
 
 ### Use the same vocabulary for the same type of variable
 
-**Bad:**
+**Վատ.**
 
 ```php
 getUserInfo();
@@ -91,7 +91,7 @@ getUserRecord();
 getUserProfile();
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 getUser();
@@ -106,14 +106,14 @@ readable and searchable. By *not* naming variables that end up being meaningful 
 understanding our program, we hurt our readers.
 Make your names searchable.
 
-**Bad:**
+**Վատ.**
 
 ```php
 // What the heck is 448 for?
 $result = $serializer->serialize($data, 448);
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -121,7 +121,7 @@ $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
 
 ### Use searchable names (part 2)
 
-**Bad:**
+**Վատ.**
 
 ```php
 // What the heck is 4 for?
@@ -130,7 +130,7 @@ if ($user->access & 4) {
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class User
@@ -150,7 +150,7 @@ if ($user->access & User::ACCESS_UPDATE) {
 
 ### Use explanatory variables
 
-**Bad:**
+**Վատ.**
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -160,7 +160,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches[1], $matches[2]);
 ```
 
-**Not bad:**
+**Վատ չէ.**
 
 It's better, but we are still heavily dependent on regex.
 
@@ -173,7 +173,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($city, $zipCode);
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 Decrease dependence on regex by naming subpatterns.
 
@@ -192,7 +192,7 @@ saveCityZipCode($matches['city'], $matches['zipCode']);
 Too many if-else statements can make your code hard to follow. Explicit is better
 than implicit.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function isShopOpen($day): bool
@@ -218,7 +218,7 @@ function isShopOpen($day): bool
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function isShopOpen(string $day): bool
@@ -239,7 +239,7 @@ function isShopOpen(string $day): bool
 
 ### Avoid nesting too deeply and return early (part 2)
 
-**Bad:**
+**Վատ.**
 
 ```php
 function fibonacci(int $n)
@@ -260,7 +260,7 @@ function fibonacci(int $n)
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function fibonacci(int $n): int
@@ -284,7 +284,7 @@ function fibonacci(int $n): int
 Don’t force the reader of your code to translate what the variable means.
 Explicit is better than implicit.
 
-**Bad:**
+**Վատ.**
 
 ```php
 $l = ['Austin', 'New York', 'San Francisco'];
@@ -301,7 +301,7 @@ for ($i = 0; $i < count($l); $i++) {
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 $locations = ['Austin', 'New York', 'San Francisco'];
@@ -323,7 +323,7 @@ foreach ($locations as $location) {
 If your class/object name tells you something, don't repeat that in your
 variable name.
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Car
@@ -336,7 +336,7 @@ class Car
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class Car
@@ -353,9 +353,9 @@ class Car
 
 ### Use default arguments instead of short circuiting or conditionals
 
-**Not good:**
+**Not Ճիշտ է.**
 
-This is not good because `$breweryName` can be `NULL`.
+This is ճիշտ չէ because `$breweryName` can be `NULL`.
 
 ```php
 function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
@@ -364,7 +364,7 @@ function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**Not bad:**
+**Վատ չէ.**
 
 This opinion is more understandable than the previous version, but it better controls the value of the variable.
 
@@ -376,7 +376,7 @@ function createMicrobrewery($name = null): void
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
  You can use [type hinting](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration) and be sure that the `$breweryName` will not be `NULL`.
 
@@ -393,7 +393,7 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 
 ### Use [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
 
-**Not good:**
+**Not Ճիշտ է.**
 
 The simple comparison will convert the string in an integer.
 
@@ -409,7 +409,7 @@ if ($a != $b) {
 The comparison `$a != $b` returns `FALSE` but in fact it's `TRUE`!
 The string `42` is different than the integer `42`.
 
-**Good:**
+**Ճիշտ է.**
 
 The identical comparison will compare type and value.
 
@@ -440,7 +440,7 @@ Anything more than that should be consolidated. Usually, if you have more than t
 arguments then your function is trying to do too much. In cases where it's not, most
 of the time a higher-level object will suffice as an argument.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function createMenu(string $title, string $body, string $buttonText, bool $cancellable): void
@@ -449,7 +449,7 @@ function createMenu(string $title, string $body, string $buttonText, bool $cance
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class MenuConfig
@@ -482,7 +482,7 @@ a function to just one action, they can be refactored easily and your code will 
 cleaner. If you take nothing else away from this guide other than this, you'll be ahead
 of many developers.
 
-**Bad:**
+**Վատ.**
 ```php
 function emailClients(array $clients): void
 {
@@ -495,7 +495,7 @@ function emailClients(array $clients): void
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function emailClients(array $clients): void
@@ -521,7 +521,7 @@ function isClientActive(int $client): bool
 
 ### Function names should say what they do
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Email
@@ -539,7 +539,7 @@ $message = new Email(...);
 $message->handle();
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class Email
@@ -565,7 +565,7 @@ When you have more than one level of abstraction your function is usually
 doing too much. Splitting up functions leads to reusability and easier
 testing.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function parseBetterJSAlternative(string $code): void
@@ -635,7 +635,7 @@ function parseBetterJSAlternative(string $code): void
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 The best solution is move out the dependencies of `parseBetterJSAlternative()` function.
 
@@ -703,7 +703,7 @@ Flags tell your user that this function does more than one thing. Functions shou
 do one thing. Split out your functions if they are following different code paths
 based on a boolean.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function createFile(string $name, bool $temp = false): void
@@ -716,7 +716,7 @@ function createFile(string $name, bool $temp = false): void
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function createFile(string $name): void
@@ -748,7 +748,7 @@ any structure, using mutable data types that can be written to by anything, and 
 centralizing where your side effects occur. If you can do this, you will be happier
 than the vast majority of other programmers.
 
-**Bad:**
+**Վատ.**
 
 ```php
 // Global variable referenced by following function.
@@ -767,7 +767,7 @@ splitIntoFirstAndLastName();
 var_dump($name); // ['Ryan', 'McDermott'];
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function splitIntoFirstAndLastName(string $name): array
@@ -792,7 +792,7 @@ production. Let's think about an example: what if you wanted to have configurati
 You could write global function like `config()`, but it could clash with another library
 that tried to do the same thing.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function config(): array
@@ -803,7 +803,7 @@ function config(): array
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class Configuration
@@ -844,7 +844,7 @@ Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern).
 
 There is also very good thoughts by [Misko Hevery](http://misko.hevery.com/about/) about the [root of problem](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
 
-**Bad:**
+**Վատ.**
 
 ```php
 class DBConnection
@@ -871,7 +871,7 @@ class DBConnection
 $singleton = DBConnection::getInstance();
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class DBConnection
@@ -897,7 +897,7 @@ And now you must use instance of `DBConnection` in your application.
 
 ### Encapsulate conditionals
 
-**Bad:**
+**Վատ.**
 
 ```php
 if ($article->state === 'published') {
@@ -905,7 +905,7 @@ if ($article->state === 'published') {
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 if ($article->isPublished()) {
@@ -917,7 +917,7 @@ if ($article->isPublished()) {
 
 ### Avoid negative conditionals
 
-**Bad:**
+**Վատ.**
 
 ```php
 function isDOMNodeNotPresent(\DOMNode $node): bool
@@ -931,7 +931,7 @@ if (!isDOMNodeNotPresent($node))
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function isDOMNodePresent(\DOMNode $node): bool
@@ -957,7 +957,7 @@ one thing. When you have classes and functions that have `if` statements, you
 are telling your user that your function does more than one thing. Remember,
 just do one thing.
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Airplane
@@ -978,7 +978,7 @@ class Airplane
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 interface Airplane
@@ -1028,7 +1028,7 @@ Sometimes you are bitten by this freedom and it becomes tempting to do
 type-checking in your functions. There are many ways to avoid having to do this.
 The first thing to consider is consistent APIs.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function travelToTexas($vehicle): void
@@ -1041,7 +1041,7 @@ function travelToTexas($vehicle): void
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function travelToTexas(Traveler $vehicle): void
@@ -1064,7 +1064,7 @@ extra verbiage that the faux "type-safety" you get doesn't make up for the lost
 readability. Keep your PHP clean, write good tests, and have good code reviews.
 Otherwise, do all of that but with PHP strict type declaration or strict mode.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function combine($val1, $val2): int
@@ -1077,7 +1077,7 @@ function combine($val1, $val2): int
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function combine(int $val1, int $val2): int
@@ -1094,7 +1094,7 @@ Dead code is just as bad as duplicate code. There's no reason to keep it in
 your codebase. If it's not being called, get rid of it! It will still be safe
 in your version history if you still need it.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function oldRequestModule(string $url): void
@@ -1111,7 +1111,7 @@ $request = newRequestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function requestModule(string $url): void
@@ -1144,7 +1144,7 @@ server.
 
 Additionally, this is part of [Open/Closed](#openclosed-principle-ocp) principle.
 
-**Bad:**
+**Վատ.**
 
 ```php
 class BankAccount
@@ -1158,7 +1158,7 @@ $bankAccount = new BankAccount();
 $bankAccount->balance -= 100;
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class BankAccount
@@ -1211,7 +1211,7 @@ Therefore, use `private` by default and `public/protected` when you need to prov
 
 For more informations you can read the [blog post](http://fabien.potencier.org/pragmatism-over-theory-protected-vs-private.html) on this topic written by [Fabien Potencier](https://github.com/fabpot).
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Employee
@@ -1228,7 +1228,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: '.$employee->name; // Employee name: John Doe
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class Employee
@@ -1273,7 +1273,7 @@ relationship (Human->Animal vs. User->UserDetails).
 3. You want to make global changes to derived classes by changing a base class.
 (Change the caloric expenditure of all animals when they move).
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Employee
@@ -1310,7 +1310,7 @@ class EmployeeTaxData extends Employee
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class EmployeeTaxData
@@ -1369,7 +1369,7 @@ more often it comes at some costs:
 For more informations you can read the full [blog post](https://ocramius.github.io/blog/fluent-interfaces-are-evil/)
 on this topic written by [Marco Pivetta](https://github.com/Ocramius).
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Car
@@ -1415,7 +1415,7 @@ $car = (new Car())
   ->dump();
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class Car
@@ -1468,7 +1468,7 @@ The only condition is that your class should implement an interface and no other
 
 For more informations you can read [the blog post](https://ocramius.github.io/blog/when-to-declare-classes-final/) on this topic written by [Marco Pivetta (Ocramius)](https://ocramius.github.io/).
 
-**Bad:**
+**Վատ.**
 
 ```php
 final class Car
@@ -1490,7 +1490,7 @@ final class Car
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 interface Vehicle
@@ -1543,7 +1543,7 @@ It's important because if too much functionality is in one class and you modify 
 it can be difficult to understand how that will affect other dependent modules in
 your codebase.
 
-**Bad:**
+**Վատ.**
 
 ```php
 class UserSettings
@@ -1569,7 +1569,7 @@ class UserSettings
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 class UserAuth
@@ -1616,7 +1616,7 @@ etc.) should be open for extension, but closed for modification." What does that
 mean though? This principle basically states that you should allow users to
 add new functionalities without changing existing code.
 
-**Bad:**
+**Վատ.**
 
 ```php
 abstract class Adapter
@@ -1681,7 +1681,7 @@ class HttpRequester
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 interface Adapter
@@ -1738,7 +1738,7 @@ classic Square-Rectangle example. Mathematically, a square is a rectangle, but
 if you model it using the "is-a" relationship via inheritance, you quickly
 get into trouble.
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Rectangle
@@ -1780,7 +1780,7 @@ function printArea(Rectangle $rectangle): void
     $rectangle->setWidth(4);
     $rectangle->setHeight(5);
 
-    // BAD: Will return 25 for Square. Should be 20.
+    // Վատ. Will return 25 for Square. Should be 20.
     echo sprintf('%s has area %d.', get_class($rectangle), $rectangle->getArea()).PHP_EOL;
 }
 
@@ -1791,7 +1791,7 @@ foreach ($rectangles as $rectangle) {
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 The best way is separate the quadrangles and allocation of a more general subtype for both shapes.
 
@@ -1861,7 +1861,7 @@ classes that require large settings objects. Not requiring clients to set up
 huge amounts of options is beneficial, because most of the time they won't need
 all of the settings. Making them optional helps prevent having a "fat interface".
 
-**Bad:**
+**Վատ.**
 
 ```php
 interface Employee
@@ -1898,7 +1898,7 @@ class Robot implements Employee
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 Not every worker is an employee, but every employee is a worker.
 
@@ -1957,7 +1957,7 @@ It can accomplish this through DI. A huge benefit of this is that it reduces
 the coupling between modules. Coupling is a very bad development pattern because
 it makes your code hard to refactor.
 
-**Bad:**
+**Վատ.**
 
 ```php
 class Employee
@@ -1992,7 +1992,7 @@ class Manager
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 interface Employee
@@ -2059,7 +2059,7 @@ worse than duplicate code, so be careful! Having said this, if you can make
 a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself
 updating multiple places any time you want to change one thing.
 
-**Bad:**
+**Վատ.**
 
 ```php
 function showDeveloperList(array $developers): void
@@ -2095,7 +2095,7 @@ function showManagerList(array $managers): void
 }
 ```
 
-**Good:**
+**Ճիշտ է.**
 
 ```php
 function showList(array $employees): void
@@ -2115,7 +2115,7 @@ function showList(array $employees): void
 }
 ```
 
-**Very good:**
+**Very Ճիշտ է.**
 
 It is better to use a compact version of the code.
 
