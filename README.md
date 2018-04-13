@@ -4,7 +4,7 @@
 
   1. [Սկիզբ](#Սկիզբ)
   2. [Փոփոխականներ](#Փոփոխականներ)
-     * [Օգտագործե՛ք meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
+     * [Օգտագործե՛ք meaningful and pronounceable փոփոխականների անվանումներ](#use-meaningful-and-pronounceable-variable-names)
      * [Օգտագործե՛ք the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
      * [Օգտագործե՛ք հասկանալի անվանումներ (մաս 1)](#use-searchable-names-part-1)
      * [Օգտագործե՛ք հասկանալի անվանումներ (մաս 2)](#use-searchable-names-part-2)
@@ -12,7 +12,7 @@
      * [Խուսափե՛ք nesting too deeply and return early (մաս 1)](#avoid-nesting-too-deeply-and-return-early-part-1)
      * [Խուսափե՛ք nesting too deeply and return early (մաս 2)](#avoid-nesting-too-deeply-and-return-early-part-2)
      * [Խուսափե՛ք Mental Mapping](#avoid-mental-mapping)
-     * [Don't add unneeded context](#dont-add-unneeded-context)
+     * [Մի ավելացրե՛ք unneeded context](#dont-add-unneeded-context)
      * [Օգտագործե՛ք default arguments instead of short circuiting or conditionals](#use-default-arguments-instead-of-short-circuiting-or-conditionals)
   3. [Համեմատություն](#Համեմատություն)
      * [Օգտագործե՛ք identical comparison](#use-identical-comparison)
@@ -21,10 +21,10 @@
      * [Functions should do one thing](#functions-should-do-one-thing)
      * [Function անվանումներ should say what they do](#function-names-should-say-what-they-do)
      * [Functions should only be one level of abstraction](#functions-should-only-be-one-level-of-abstraction)
-     * [Don't use flags as function parameters](#dont-use-flags-as-function-parameters)
+     * [Մի օգտագործե՛ք դրոշակները որպես ֆունկցիայի արգումենտ](#dont-use-flags-as-function-parameters)
      * [Խուսափե՛ք Side Effects](#avoid-side-effects)
      * [Don't write to global functions](#dont-write-to-global-functions)
-     * [Don't use a Singleton pattern](#dont-use-a-singleton-pattern)
+     * [Մի օգտագործե՛ք a Singleton pattern](#dont-use-a-singleton-pattern)
      * [Encapsulate conditionals](#encapsulate-conditionals)
      * [Խուսափե՛ք negative conditionals](#avoid-negative-conditionals)
      * [Խուսափե՛ք conditionals](#avoid-conditionals)
@@ -35,9 +35,9 @@
      * [Օգտագործե՛ք object encapsulation](#use-object-encapsulation)
      * [Make objects have private/protected members](#make-objects-have-privateprotected-members)
   6. [Դասեր](#Դասեր)
-     * [Prefer composition over inheritance](#prefer-composition-over-inheritance)
+     * [Նախընտրե՛ք composition over inheritance](#prefer-composition-over-inheritance)
      * [Խուսափե՛ք fluent interfaces](#avoid-fluent-interfaces)
-     * [Prefer `final` classes](#prefer-final-classes)
+     * [Նախընտրե՛ք `final` classes](#prefer-final-classes)
   7. [SOLID](#solid)
      * [Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
      * [Open/Closed Principle (OCP)](#openclosed-principle-ocp)
@@ -64,7 +64,7 @@ Although many developers still use PHP 5, most of the examples in this article o
 
 ## Փոփոխականներ
 
-### Օգտագործե՛ք meaningful and pronounceable variable names
+### Օգտագործե՛ք meaningful and pronounceable փոփոխականների անվանումներ
 
 **Վատ կոդ**
 
@@ -248,7 +248,7 @@ function fibonacci(int $n)
         if ($n !== 0) {
             if ($n !== 1) {
                 return fibonacci($n - 1) + fibonacci($n - 2);
-            } else {
+            } else
                 return 1;
             }
         } else {
@@ -318,7 +318,7 @@ foreach ($locations as $location) {
 
 **[⬆ բաժիններ](#Բաժիններ)**
 
-### Don't add unneeded context
+### Մի ավելացրեք unneeded context
 
 If your class/object name tells you something, don't repeat that in your
 variable name.
@@ -697,7 +697,7 @@ class BetterJSAlternative
 
 **[⬆ բաժիններ](#Բաժիններ)**
 
-### Don't use flags as function parameters
+### Մի օգտագործե՛ք flags որպես ֆունկցիայի արգումենտ
 
 Flags tell your user that this function does more than one thing. Functions should
 do one thing. Split out your functions if they are following different code paths
@@ -834,7 +834,7 @@ And now you must use instance of `Configuration` in your application.
 
 **[⬆ բաժիններ](#Բաժիններ)**
 
-### Don't use a Singleton pattern
+### Մի օգտագործե՛ք a Singleton pattern
 
 Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button:
  1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through the interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
@@ -1254,7 +1254,7 @@ echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 
 ## Դասեր
 
-### Prefer composition over inheritance
+### Նախընտրե՛ք composition over inheritance
 
 As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
 you should prefer composition over inheritance where you can. There are lots of
@@ -1454,7 +1454,7 @@ $car->dump();
 
 **[⬆ բաժիններ](#Բաժիններ)**
 
-### Prefer final classes
+### Նախընտրե՛ք final classes
 
 The `final` should be used whenever possible:
 
