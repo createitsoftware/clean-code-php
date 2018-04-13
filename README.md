@@ -1,9 +1,9 @@
 # Մաքուր կոդինգի սկզբմունքները PHP֊ում
 
-## Բովանդակություն
+## Բաժիններ
 
-  1. [Սկիզբ](#introduction)
-  2. [Փոփոխականներ](#variables)
+  1. [Սկիզբ](#Սկիզբ)
+  2. [Փոփոխականներ](#Փոփոխականներ)
      * [Use meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
      * [Use the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
      * [Use searchable names (part 1)](#use-searchable-names-part-1)
@@ -14,9 +14,9 @@
      * [Avoid Mental Mapping](#avoid-mental-mapping)
      * [Don't add unneeded context](#dont-add-unneeded-context)
      * [Use default arguments instead of short circuiting or conditionals](#use-default-arguments-instead-of-short-circuiting-or-conditionals)
-  3. [Համեմատություն](#comparison)
+  3. [Համեմատություն](#Համեմատություն)
      * [Use identical comparison](#use-identical-comparison)
-  4. [Մեթոդներ եւ ֆունկցիաներ](#functions)
+  4. [Մեթոդներ եւ ֆունկցիաներ](#Մեթոդներ եւ ֆունկցիաներ)
      * [Function arguments (2 or fewer ideally)](#function-arguments-2-or-fewer-ideally)
      * [Functions should do one thing](#functions-should-do-one-thing)
      * [Function names should say what they do](#function-names-should-say-what-they-do)
@@ -34,7 +34,7 @@
   5. [Օբյեկտներ եւ ստրուկտուրաներ](#objects-and-data-structures)
      * [Use object encapsulation](#use-object-encapsulation)
      * [Make objects have private/protected members](#make-objects-have-privateprotected-members)
-  6. [Դասեր](#classes)
+  6. [Դասեր](#Դասեր)
      * [Prefer composition over inheritance](#prefer-composition-over-inheritance)
      * [Avoid fluent interfaces](#avoid-fluent-interfaces)
      * [Prefer `final` classes](#prefer-final-classes)
@@ -44,8 +44,8 @@
      * [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
      * [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
      * [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
-  8. [Մի՛ կրկնվիր (DRY)](#dont-repeat-yourself-dry)
-  9. [Թարգմանություններ](#translations)
+  8. [Մի՛ կրկնվիր (DRY)](#Մի՛ կրկնվիր (DRY))
+  9. [Այլ լեզուներով](#Այլ լեզուներով)
 
 ## Սկիզբ
 
@@ -66,23 +66,23 @@ Although many developers still use PHP 5, most of the examples in this article o
 
 ### Use meaningful and pronounceable variable names
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 $ymdstr = $moment->format('y-m-d');
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 $currentDate = $moment->format('y-m-d');
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Use the same vocabulary for the same type of variable
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 getUserInfo();
@@ -91,13 +91,13 @@ getUserRecord();
 getUserProfile();
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 getUser();
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Use searchable names (part 1)
 
@@ -106,14 +106,14 @@ readable and searchable. By *not* naming variables that end up being meaningful 
 understanding our program, we hurt our readers.
 Make your names searchable.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 // What the heck is 448 for?
 $result = $serializer->serialize($data, 448);
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -121,7 +121,7 @@ $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
 
 ### Use searchable names (part 2)
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 // What the heck is 4 for?
@@ -130,7 +130,7 @@ if ($user->access & 4) {
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class User
@@ -146,11 +146,11 @@ if ($user->access & User::ACCESS_UPDATE) {
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Use explanatory variables
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -160,7 +160,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches[1], $matches[2]);
 ```
 
-**Վատ չէ.**
+**Լավ կոդ**
 
 It's better, but we are still heavily dependent on regex.
 
@@ -173,7 +173,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($city, $zipCode);
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 Decrease dependence on regex by naming subpatterns.
 
@@ -185,14 +185,14 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches['city'], $matches['zipCode']);
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid nesting too deeply and return early (part 1)
 
 Too many if-else statements can make your code hard to follow. Explicit is better
 than implicit.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function isShopOpen($day): bool
@@ -218,7 +218,7 @@ function isShopOpen($day): bool
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function isShopOpen(string $day): bool
@@ -235,11 +235,11 @@ function isShopOpen(string $day): bool
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid nesting too deeply and return early (part 2)
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function fibonacci(int $n)
@@ -260,7 +260,7 @@ function fibonacci(int $n)
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function fibonacci(int $n): int
@@ -277,14 +277,14 @@ function fibonacci(int $n): int
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid Mental Mapping
 
 Don’t force the reader of your code to translate what the variable means.
 Explicit is better than implicit.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 $l = ['Austin', 'New York', 'San Francisco'];
@@ -301,7 +301,7 @@ for ($i = 0; $i < count($l); $i++) {
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 $locations = ['Austin', 'New York', 'San Francisco'];
@@ -316,14 +316,14 @@ foreach ($locations as $location) {
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Don't add unneeded context
 
 If your class/object name tells you something, don't repeat that in your
 variable name.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Car
@@ -336,7 +336,7 @@ class Car
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class Car
@@ -349,11 +349,11 @@ class Car
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Use default arguments instead of short circuiting or conditionals
 
-**Not Ճիշտ է.**
+**Սխալ է**
 
 This is ճիշտ չէ because `$breweryName` can be `NULL`.
 
@@ -364,7 +364,7 @@ function createMicrobrewery($breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**Վատ չէ.**
+**Լավ կոդ**
 
 This opinion is more understandable than the previous version, but it better controls the value of the variable.
 
@@ -376,7 +376,7 @@ function createMicrobrewery($name = null): void
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
  You can use [type hinting](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration) and be sure that the `$breweryName` will not be `NULL`.
 
@@ -387,13 +387,13 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ## Համեմատություն
 
 ### Use [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
 
-**Not Ճիշտ է.**
+**Սխալ է**
 
 The simple comparison will convert the string in an integer.
 
@@ -409,7 +409,7 @@ if ($a != $b) {
 The comparison `$a != $b` returns `FALSE` but in fact it's `TRUE`!
 The string `42` is different than the integer `42`.
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 The identical comparison will compare type and value.
 
@@ -424,7 +424,7 @@ if ($a !== $b) {
 
 The comparison `$a !== $b` returns `TRUE`.
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 
 ## Մեթոդներ եւ ֆունկցիաներ
@@ -440,7 +440,7 @@ Anything more than that should be consolidated. Usually, if you have more than t
 arguments then your function is trying to do too much. In cases where it's not, most
 of the time a higher-level object will suffice as an argument.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function createMenu(string $title, string $body, string $buttonText, bool $cancellable): void
@@ -449,7 +449,7 @@ function createMenu(string $title, string $body, string $buttonText, bool $cance
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class MenuConfig
@@ -472,7 +472,7 @@ function createMenu(MenuConfig $config): void
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Functions should do one thing
 
@@ -482,7 +482,7 @@ a function to just one action, they can be refactored easily and your code will 
 cleaner. If you take nothing else away from this guide other than this, you'll be ahead
 of many developers.
 
-**Վատ.**
+**Վատ կոդ**
 ```php
 function emailClients(array $clients): void
 {
@@ -495,7 +495,7 @@ function emailClients(array $clients): void
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function emailClients(array $clients): void
@@ -517,11 +517,11 @@ function isClientActive(int $client): bool
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Function names should say what they do
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Email
@@ -539,7 +539,7 @@ $message = new Email(...);
 $message->handle();
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class Email
@@ -557,7 +557,7 @@ $message = new Email(...);
 $message->send();
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Functions should only be one level of abstraction
 
@@ -565,7 +565,7 @@ When you have more than one level of abstraction your function is usually
 doing too much. Splitting up functions leads to reusability and easier
 testing.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function parseBetterJSAlternative(string $code): void
@@ -635,7 +635,7 @@ function parseBetterJSAlternative(string $code): void
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 The best solution is move out the dependencies of `parseBetterJSAlternative()` function.
 
@@ -695,7 +695,7 @@ class BetterJSAlternative
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Don't use flags as function parameters
 
@@ -703,7 +703,7 @@ Flags tell your user that this function does more than one thing. Functions shou
 do one thing. Split out your functions if they are following different code paths
 based on a boolean.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function createFile(string $name, bool $temp = false): void
@@ -716,7 +716,7 @@ function createFile(string $name, bool $temp = false): void
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function createFile(string $name): void
@@ -730,7 +730,7 @@ function createTempFile(string $name): void
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid Side Effects
 
@@ -748,7 +748,7 @@ any structure, using mutable data types that can be written to by anything, and 
 centralizing where your side effects occur. If you can do this, you will be happier
 than the vast majority of other programmers.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 // Global variable referenced by following function.
@@ -767,7 +767,7 @@ splitIntoFirstAndLastName();
 var_dump($name); // ['Ryan', 'McDermott'];
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function splitIntoFirstAndLastName(string $name): array
@@ -782,7 +782,7 @@ var_dump($name); // 'Ryan McDermott';
 var_dump($newName); // ['Ryan', 'McDermott'];
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Don't write to global functions
 
@@ -792,7 +792,7 @@ production. Let's think about an example: what if you wanted to have configurati
 You could write global function like `config()`, but it could clash with another library
 that tried to do the same thing.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function config(): array
@@ -803,7 +803,7 @@ function config(): array
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class Configuration
@@ -832,7 +832,7 @@ $configuration = new Configuration([
 
 And now you must use instance of `Configuration` in your application.
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Don't use a Singleton pattern
 
@@ -844,7 +844,7 @@ Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern).
 
 There is also very good thoughts by [Misko Hevery](http://misko.hevery.com/about/) about the [root of problem](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class DBConnection
@@ -871,7 +871,7 @@ class DBConnection
 $singleton = DBConnection::getInstance();
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class DBConnection
@@ -893,11 +893,11 @@ $connection = new DBConnection($dsn);
 
 And now you must use instance of `DBConnection` in your application.
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Encapsulate conditionals
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 if ($article->state === 'published') {
@@ -905,7 +905,7 @@ if ($article->state === 'published') {
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 if ($article->isPublished()) {
@@ -913,11 +913,11 @@ if ($article->isPublished()) {
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid negative conditionals
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function isDOMNodeNotPresent(\DOMNode $node): bool
@@ -931,7 +931,7 @@ if (!isDOMNodeNotPresent($node))
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function isDOMNodePresent(\DOMNode $node): bool
@@ -944,7 +944,7 @@ if (isDOMNodePresent($node)) {
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid conditionals
 
@@ -957,7 +957,7 @@ one thing. When you have classes and functions that have `if` statements, you
 are telling your user that your function does more than one thing. Remember,
 just do one thing.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Airplane
@@ -978,7 +978,7 @@ class Airplane
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 interface Airplane
@@ -1019,7 +1019,7 @@ class Cessna implements Airplane
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid type-checking (part 1)
 
@@ -1028,7 +1028,7 @@ Sometimes you are bitten by this freedom and it becomes tempting to do
 type-checking in your functions. There are many ways to avoid having to do this.
 The first thing to consider is consistent APIs.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function travelToTexas($vehicle): void
@@ -1041,7 +1041,7 @@ function travelToTexas($vehicle): void
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function travelToTexas(Traveler $vehicle): void
@@ -1050,7 +1050,7 @@ function travelToTexas(Traveler $vehicle): void
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid type-checking (part 2)
 
@@ -1064,7 +1064,7 @@ extra verbiage that the faux "type-safety" you get doesn't make up for the lost
 readability. Keep your PHP clean, write good tests, and have good code reviews.
 Otherwise, do all of that but with PHP strict type declaration or strict mode.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function combine($val1, $val2): int
@@ -1077,7 +1077,7 @@ function combine($val1, $val2): int
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function combine(int $val1, int $val2): int
@@ -1086,7 +1086,7 @@ function combine(int $val1, int $val2): int
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Remove dead code
 
@@ -1094,7 +1094,7 @@ Dead code is just as bad as duplicate code. There's no reason to keep it in
 your codebase. If it's not being called, get rid of it! It will still be safe
 in your version history if you still need it.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function oldRequestModule(string $url): void
@@ -1111,7 +1111,7 @@ $request = newRequestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function requestModule(string $url): void
@@ -1123,7 +1123,7 @@ $request = requestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 
 ## Օբյեկտներ եւ ստրուկտուրաներ
@@ -1144,7 +1144,7 @@ server.
 
 Additionally, this is part of [Open/Closed](#openclosed-principle-ocp) principle.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class BankAccount
@@ -1158,7 +1158,7 @@ $bankAccount = new BankAccount();
 $bankAccount->balance -= 100;
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class BankAccount
@@ -1199,7 +1199,7 @@ $bankAccount->withdraw($shoesPrice);
 $balance = $bankAccount->getBalance();
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Make objects have private/protected members
 
@@ -1211,7 +1211,7 @@ Therefore, use `private` by default and `public/protected` when you need to prov
 
 For more informations you can read the [blog post](http://fabien.potencier.org/pragmatism-over-theory-protected-vs-private.html) on this topic written by [Fabien Potencier](https://github.com/fabpot).
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Employee
@@ -1228,7 +1228,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: '.$employee->name; // Employee name: John Doe
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class Employee
@@ -1250,7 +1250,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ## Դասեր
 
@@ -1273,7 +1273,7 @@ relationship (Human->Animal vs. User->UserDetails).
 3. You want to make global changes to derived classes by changing a base class.
 (Change the caloric expenditure of all animals when they move).
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Employee
@@ -1310,7 +1310,7 @@ class EmployeeTaxData extends Employee
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class EmployeeTaxData
@@ -1348,7 +1348,7 @@ class Employee
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Avoid fluent interfaces
 
@@ -1369,7 +1369,7 @@ more often it comes at some costs:
 For more informations you can read the full [blog post](https://ocramius.github.io/blog/fluent-interfaces-are-evil/)
 on this topic written by [Marco Pivetta](https://github.com/Ocramius).
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Car
@@ -1415,7 +1415,7 @@ $car = (new Car())
   ->dump();
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class Car
@@ -1452,7 +1452,7 @@ $car->setModel('F-150');
 $car->dump();
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Prefer final classes
 
@@ -1468,7 +1468,7 @@ The only condition is that your class should implement an interface and no other
 
 For more informations you can read [the blog post](https://ocramius.github.io/blog/when-to-declare-classes-final/) on this topic written by [Marco Pivetta (Ocramius)](https://ocramius.github.io/).
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 final class Car
@@ -1490,7 +1490,7 @@ final class Car
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 interface Vehicle
@@ -1520,7 +1520,7 @@ final class Car implements Vehicle
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ## SOLID
 
@@ -1543,7 +1543,7 @@ It's important because if too much functionality is in one class and you modify 
 it can be difficult to understand how that will affect other dependent modules in
 your codebase.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class UserSettings
@@ -1569,7 +1569,7 @@ class UserSettings
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 class UserAuth
@@ -1607,7 +1607,7 @@ class UserSettings
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1616,7 +1616,7 @@ etc.) should be open for extension, but closed for modification." What does that
 mean though? This principle basically states that you should allow users to
 add new functionalities without changing existing code.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 abstract class Adapter
@@ -1681,7 +1681,7 @@ class HttpRequester
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 interface Adapter
@@ -1721,7 +1721,7 @@ class HttpRequester
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1738,7 +1738,7 @@ classic Square-Rectangle example. Mathematically, a square is a rectangle, but
 if you model it using the "is-a" relationship via inheritance, you quickly
 get into trouble.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Rectangle
@@ -1780,7 +1780,7 @@ function printArea(Rectangle $rectangle): void
     $rectangle->setWidth(4);
     $rectangle->setHeight(5);
 
-    // Վատ. Will return 25 for Square. Should be 20.
+    // Վատ կոդ Will return 25 for Square. Should be 20.
     echo sprintf('%s has area %d.', get_class($rectangle), $rectangle->getArea()).PHP_EOL;
 }
 
@@ -1791,7 +1791,7 @@ foreach ($rectangles as $rectangle) {
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 The best way is separate the quadrangles and allocation of a more general subtype for both shapes.
 
@@ -1849,7 +1849,7 @@ foreach ($shapes as $shape) {
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1861,7 +1861,7 @@ classes that require large settings objects. Not requiring clients to set up
 huge amounts of options is beneficial, because most of the time they won't need
 all of the settings. Making them optional helps prevent having a "fat interface".
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 interface Employee
@@ -1898,7 +1898,7 @@ class Robot implements Employee
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 Not every worker is an employee, but every employee is a worker.
 
@@ -1940,7 +1940,7 @@ class Robot implements Workable
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -1957,7 +1957,7 @@ It can accomplish this through DI. A huge benefit of this is that it reduces
 the coupling between modules. Coupling is a very bad development pattern because
 it makes your code hard to refactor.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 class Employee
@@ -1992,7 +1992,7 @@ class Manager
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 interface Employee
@@ -2032,7 +2032,7 @@ class Manager
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
 ## Don’t repeat yourself (DRY)
 
@@ -2059,7 +2059,7 @@ worse than duplicate code, so be careful! Having said this, if you can make
 a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself
 updating multiple places any time you want to change one thing.
 
-**Վատ.**
+**Վատ կոդ**
 
 ```php
 function showDeveloperList(array $developers): void
@@ -2095,7 +2095,7 @@ function showManagerList(array $managers): void
 }
 ```
 
-**Ճիշտ է.**
+**Լավ կոդ**
 
 ```php
 function showList(array $employees): void
@@ -2115,7 +2115,7 @@ function showList(array $employees): void
 }
 ```
 
-**Very Ճիշտ է.**
+**Լավ կոդ**
 
 It is better to use a compact version of the code.
 
@@ -2132,11 +2132,11 @@ function showList(array $employees): void
 }
 ```
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
 
-## Թարգմանություններ
+## Այլ լեզուներով
 
-This is also available in other languages:
+Այս ուղեցույցը հասնանելի է նաեւ այլ լեզուներով
 
 * :cn: **Chinese:**
    * [php-cpm/clean-code-php](https://github.com/php-cpm/clean-code-php)
@@ -2156,4 +2156,4 @@ This is also available in other languages:
 * :kr: **Korean:**
    * [yujineeee/clean-code-php](https://github.com/yujineeee/clean-code-php)
 
-**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
+**[⬆ բաժիններ](#Բովանդակություն)**
