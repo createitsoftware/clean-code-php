@@ -1,6 +1,6 @@
-# Clean Code PHP
+# Մաքուր կոդինգի սկզբմունքները PHP֊ում
 
-## Table of Contents
+## Բովանդակություն
 
   1. [Introduction](#introduction)
   2. [Variables](#variables)
