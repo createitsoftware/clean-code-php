@@ -1,4 +1,4 @@
-﻿# Clean Code PHP
+# Clean Code PHP
 
 ## Table of Contents
 
@@ -78,7 +78,7 @@ $ymdstr = $moment->format('y-m-d');
 $currentDate = $moment->format('y-m-d');
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Use the same vocabulary for the same type of variable
 
@@ -97,7 +97,7 @@ getUserProfile();
 getUser();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Use searchable names (part 1)
 
@@ -146,7 +146,7 @@ if ($user->access & User::ACCESS_UPDATE) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Use explanatory variables
 
@@ -185,7 +185,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches['city'], $matches['zipCode']);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid nesting too deeply and return early (part 1)
 
@@ -235,7 +235,7 @@ function isShopOpen(string $day): bool
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid nesting too deeply and return early (part 2)
 
@@ -277,7 +277,7 @@ function fibonacci(int $n): int
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid Mental Mapping
 
@@ -316,7 +316,7 @@ foreach ($locations as $location) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Don't add unneeded context
 
@@ -349,7 +349,7 @@ class Car
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Use default arguments instead of short circuiting or conditionals
 
@@ -387,7 +387,7 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ## Comparison
 
@@ -424,7 +424,7 @@ if ($a !== $b) {
 
 The comparison `$a !== $b` returns `TRUE`.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 
 ## Functions
@@ -472,7 +472,7 @@ function createMenu(MenuConfig $config): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Functions should do one thing
 
@@ -517,7 +517,7 @@ function isClientActive(int $client): bool
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Function names should say what they do
 
@@ -557,7 +557,7 @@ $message = new Email(...);
 $message->send();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Functions should only be one level of abstraction
 
@@ -695,7 +695,7 @@ class BetterJSAlternative
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Don't use flags as function parameters
 
@@ -730,7 +730,7 @@ function createTempFile(string $name): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid Side Effects
 
@@ -782,7 +782,7 @@ var_dump($name); // 'Ryan McDermott';
 var_dump($newName); // ['Ryan', 'McDermott'];
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Don't write to global functions
 
@@ -832,7 +832,7 @@ $configuration = new Configuration([
 
 And now you must use instance of `Configuration` in your application.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Don't use a Singleton pattern
 
@@ -893,7 +893,7 @@ $connection = new DBConnection($dsn);
 
 And now you must use instance of `DBConnection` in your application.
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Encapsulate conditionals
 
@@ -913,7 +913,7 @@ if ($article->isPublished()) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid negative conditionals
 
@@ -944,7 +944,7 @@ if (isDOMNodePresent($node)) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid conditionals
 
@@ -1019,7 +1019,7 @@ class Cessna implements Airplane
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid type-checking (part 1)
 
@@ -1050,7 +1050,7 @@ function travelToTexas(Traveler $vehicle): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid type-checking (part 2)
 
@@ -1086,7 +1086,7 @@ function combine(int $val1, int $val2): int
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Remove dead code
 
@@ -1123,7 +1123,7 @@ $request = requestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 
 ## Objects and Data Structures
@@ -1199,7 +1199,7 @@ $bankAccount->withdraw($shoesPrice);
 $balance = $bankAccount->getBalance();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Make objects have private/protected members
 
@@ -1250,7 +1250,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ## Classes
 
@@ -1348,7 +1348,7 @@ class Employee
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Avoid fluent interfaces
 
@@ -1452,7 +1452,7 @@ $car->setModel('F-150');
 $car->dump();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Prefer final classes
 
@@ -1520,7 +1520,7 @@ final class Car implements Vehicle
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ## SOLID
 
@@ -1607,7 +1607,7 @@ class UserSettings
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1721,7 +1721,7 @@ class HttpRequester
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1849,7 +1849,7 @@ foreach ($shapes as $shape) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1940,7 +1940,7 @@ class Robot implements Workable
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -2032,7 +2032,7 @@ class Manager
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ## Don’t repeat yourself (DRY)
 
@@ -2132,7 +2132,7 @@ function showList(array $employees): void
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
 
 ## Translations
 
@@ -2156,4 +2156,4 @@ This is also available in other languages:
 * :kr: **Korean:**
    * [yujineeee/clean-code-php](https://github.com/yujineeee/clean-code-php)
    
-**[⬆ back to top](#table-of-contents)**
+**[⬆ վերադառնալ բովանդակությանը](#table-of-contents)**
