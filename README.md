@@ -4,39 +4,39 @@
 
   1. [Սկիզբ](#Սկիզբ)
   2. [Փոփոխականներ](#Փոփոխականներ)
-     * [Use meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
-     * [Use the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
-     * [Use searchable names (part 1)](#use-searchable-names-part-1)
-     * [Use searchable names (part 2)](#use-searchable-names-part-2)
-     * [Use explanatory variables](#use-explanatory-variables)
-     * [Avoid nesting too deeply and return early (part 1)](#avoid-nesting-too-deeply-and-return-early-part-1)
-     * [Avoid nesting too deeply and return early (part 2)](#avoid-nesting-too-deeply-and-return-early-part-2)
-     * [Avoid Mental Mapping](#avoid-mental-mapping)
+     * [Օգտագործե՛ք meaningful and pronounceable variable names](#use-meaningful-and-pronounceable-variable-names)
+     * [Օգտագործե՛ք the same vocabulary for the same type of variable](#use-the-same-vocabulary-for-the-same-type-of-variable)
+     * [Օգտագործե՛ք հասկանալի անվանումներ (մաս 1)](#use-searchable-names-part-1)
+     * [Օգտագործե՛ք հասկանալի անվանումներ (մաս 2)](#use-searchable-names-part-2)
+     * [Օգտագործե՛ք explanatory փոփոխականներ](#use-explanatory-փոփոխականներ)
+     * [Խուսափե՛ք nesting too deeply and return early (մաս 1)](#avoid-nesting-too-deeply-and-return-early-part-1)
+     * [Խուսափե՛ք nesting too deeply and return early (մաս 2)](#avoid-nesting-too-deeply-and-return-early-part-2)
+     * [Խուսափե՛ք Mental Mapping](#avoid-mental-mapping)
      * [Don't add unneeded context](#dont-add-unneeded-context)
-     * [Use default arguments instead of short circuiting or conditionals](#use-default-arguments-instead-of-short-circuiting-or-conditionals)
+     * [Օգտագործե՛ք default arguments instead of short circuiting or conditionals](#use-default-arguments-instead-of-short-circuiting-or-conditionals)
   3. [Համեմատություն](#Համեմատություն)
-     * [Use identical comparison](#use-identical-comparison)
+     * [Օգտագործե՛ք identical comparison](#use-identical-comparison)
   4. [Մեթոդներ եւ ֆունկցիաներ](#Մեթոդներ եւ ֆունկցիաներ)
      * [Function arguments (2 or fewer ideally)](#function-arguments-2-or-fewer-ideally)
      * [Functions should do one thing](#functions-should-do-one-thing)
-     * [Function names should say what they do](#function-names-should-say-what-they-do)
+     * [Function անվանումներ should say what they do](#function-names-should-say-what-they-do)
      * [Functions should only be one level of abstraction](#functions-should-only-be-one-level-of-abstraction)
      * [Don't use flags as function parameters](#dont-use-flags-as-function-parameters)
-     * [Avoid Side Effects](#avoid-side-effects)
+     * [Խուսափե՛ք Side Effects](#avoid-side-effects)
      * [Don't write to global functions](#dont-write-to-global-functions)
      * [Don't use a Singleton pattern](#dont-use-a-singleton-pattern)
      * [Encapsulate conditionals](#encapsulate-conditionals)
-     * [Avoid negative conditionals](#avoid-negative-conditionals)
-     * [Avoid conditionals](#avoid-conditionals)
-     * [Avoid type-checking (part 1)](#avoid-type-checking-part-1)
-     * [Avoid type-checking (part 2)](#avoid-type-checking-part-2)
+     * [Խուսափե՛ք negative conditionals](#avoid-negative-conditionals)
+     * [Խուսափե՛ք conditionals](#avoid-conditionals)
+     * [Խուսափե՛ք type-checking (մաս 1)](#avoid-type-checking-part-1)
+     * [Խուսափե՛ք type-checking (մաս 2)](#avoid-type-checking-part-2)
      * [Remove dead code](#remove-dead-code)
   5. [Օբյեկտներ եւ ստրուկտուրաներ](#objects-and-data-structures)
-     * [Use object encapsulation](#use-object-encapsulation)
+     * [Օգտագործե՛ք object encapsulation](#use-object-encapsulation)
      * [Make objects have private/protected members](#make-objects-have-privateprotected-members)
   6. [Դասեր](#Դասեր)
      * [Prefer composition over inheritance](#prefer-composition-over-inheritance)
-     * [Avoid fluent interfaces](#avoid-fluent-interfaces)
+     * [Խուսափե՛ք fluent interfaces](#avoid-fluent-interfaces)
      * [Prefer `final` classes](#prefer-final-classes)
   7. [SOLID](#solid)
      * [Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
@@ -54,7 +54,7 @@
 This is not a style guide. It's a guide to producing
 readable, reusable, and refactorable software in PHP.
 
-Not every principle herein has to be strictly followed, and even fewer will be universally
+Ոչ բոլոր principle herein has to be strictly followed, and even fewer will be universally
 agreed upon. These are guidelines and nothing more, but they are ones codified over many
 years of collective experience by the authors of *Clean Code*.
 
@@ -64,7 +64,7 @@ Although many developers still use PHP 5, most of the examples in this article o
 
 ## Փոփոխականներ
 
-### Use meaningful and pronounceable variable names
+### Օգտագործե՛ք meaningful and pronounceable variable names
 
 **Վատ կոդ**
 
@@ -78,9 +78,9 @@ $ymdstr = $moment->format('y-m-d');
 $currentDate = $moment->format('y-m-d');
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Use the same vocabulary for the same type of variable
+### Օգտագործե՛ք the same vocabulary for the same type of variable
 
 **Վատ կոդ**
 
@@ -97,14 +97,14 @@ getUserProfile();
 getUser();
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Use searchable names (part 1)
+### Օգտագործե՛ք հասկանալի անվանումներ (մաս 1)
 
 We will read more code than we will ever write. It's important that the code we do write is
-readable and searchable. By *not* naming variables that end up being meaningful for
+readable and searchable. By *not* naming փոփոխականներ that end up being meaningful for
 understanding our program, we hurt our readers.
-Make your names searchable.
+Make your անվանումներ searchable.
 
 **Վատ կոդ**
 
@@ -119,7 +119,7 @@ $result = $serializer->serialize($data, 448);
 $json = $serializer->serialize($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 ```
 
-### Use searchable names (part 2)
+### Օգտագործե՛ք հասկանալի անվանումներ (մաս 2)
 
 **Վատ կոդ**
 
@@ -146,9 +146,9 @@ if ($user->access & User::ACCESS_UPDATE) {
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Use explanatory variables
+### Օգտագործե՛ք explanatory փոփոխականներ
 
 **Վատ կոդ**
 
@@ -185,9 +185,9 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches['city'], $matches['zipCode']);
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid nesting too deeply and return early (part 1)
+### Խուսափե՛ք nesting too deeply and return early (մաս 1)
 
 Too many if-else statements can make your code hard to follow. Explicit is better
 than implicit.
@@ -235,9 +235,9 @@ function isShopOpen(string $day): bool
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid nesting too deeply and return early (part 2)
+### Խուսափե՛ք nesting too deeply and return early (մաս 2)
 
 **Վատ կոդ**
 
@@ -277,9 +277,9 @@ function fibonacci(int $n): int
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid Mental Mapping
+### Խուսափե՛ք Mental Mapping
 
 Don’t force the reader of your code to translate what the variable means.
 Explicit is better than implicit.
@@ -316,7 +316,7 @@ foreach ($locations as $location) {
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Don't add unneeded context
 
@@ -349,9 +349,9 @@ class Car
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Use default arguments instead of short circuiting or conditionals
+### Օգտագործե՛ք default arguments instead of short circuiting or conditionals
 
 **Սխալ է**
 
@@ -387,11 +387,11 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.'): void
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ## Համեմատություն
 
-### Use [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
+### Օգտագործե՛ք [identical comparison](http://php.net/manual/en/language.operators.comparison.php)
 
 **Սխալ է**
 
@@ -424,7 +424,7 @@ if ($a !== $b) {
 
 The comparison `$a !== $b` returns `TRUE`.
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 
 ## Մեթոդներ եւ ֆունկցիաներ
@@ -472,7 +472,7 @@ function createMenu(MenuConfig $config): void
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Functions should do one thing
 
@@ -517,9 +517,9 @@ function isClientActive(int $client): bool
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Function names should say what they do
+### Function անվանումներ should say what they do
 
 **Վատ կոդ**
 
@@ -557,7 +557,7 @@ $message = new Email(...);
 $message->send();
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Functions should only be one level of abstraction
 
@@ -695,7 +695,7 @@ class BetterJSAlternative
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Don't use flags as function parameters
 
@@ -730,9 +730,9 @@ function createTempFile(string $name): void
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid Side Effects
+### Խուսափե՛ք Side Effects
 
 A function produces a side effect if it does anything other than take a value in and
 return another value or values. A side effect could be writing to a file, modifying
@@ -782,7 +782,7 @@ var_dump($name); // 'Ryan McDermott';
 var_dump($newName); // ['Ryan', 'McDermott'];
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Don't write to global functions
 
@@ -832,7 +832,7 @@ $configuration = new Configuration([
 
 And now you must use instance of `Configuration` in your application.
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Don't use a Singleton pattern
 
@@ -893,7 +893,7 @@ $connection = new DBConnection($dsn);
 
 And now you must use instance of `DBConnection` in your application.
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Encapsulate conditionals
 
@@ -913,9 +913,9 @@ if ($article->isPublished()) {
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid negative conditionals
+### Խուսափե՛ք negative conditionals
 
 **Վատ կոդ**
 
@@ -944,9 +944,9 @@ if (isDOMNodePresent($node)) {
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid conditionals
+### Խուսափե՛ք conditionals
 
 This seems like an impossible task. Upon first hearing this, most people say,
 "how am I supposed to do anything without an `if` statement?" The answer is that
@@ -1019,9 +1019,9 @@ class Cessna implements Airplane
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid type-checking (part 1)
+### Խուսափե՛ք type-checking (մաս 1)
 
 PHP is untyped, which means your functions can take any type of argument.
 Sometimes you are bitten by this freedom and it becomes tempting to do
@@ -1050,9 +1050,9 @@ function travelToTexas(Traveler $vehicle): void
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid type-checking (part 2)
+### Խուսափե՛ք type-checking (մաս 2)
 
 If you are working with basic primitive values like strings, integers, and arrays,
 and you use PHP 7+ and you can't use polymorphism but you still feel the need to
@@ -1086,7 +1086,7 @@ function combine(int $val1, int $val2): int
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Remove dead code
 
@@ -1123,12 +1123,12 @@ $request = requestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 
 ## Օբյեկտներ եւ ստրուկտուրաներ
 
-### Use object encapsulation
+### Օգտագործե՛ք object encapsulation
 
 In PHP you can set `public`, `protected` and `private` keywords for methods.
 Using it, you can control properties modification on an object.
@@ -1199,7 +1199,7 @@ $bankAccount->withdraw($shoesPrice);
 $balance = $bankAccount->getBalance();
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Make objects have private/protected members
 
@@ -1250,7 +1250,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ## Դասեր
 
@@ -1348,9 +1348,9 @@ class Employee
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
-### Avoid fluent interfaces
+### Խուսափե՛ք fluent interfaces
 
 A [Fluent interface](https://en.wikipedia.org/wiki/Fluent_interface) is an object
 oriented API that aims to improve the readability of the source code by using
@@ -1452,7 +1452,7 @@ $car->setModel('F-150');
 $car->dump();
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Prefer final classes
 
@@ -1520,7 +1520,7 @@ final class Car implements Vehicle
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ## SOLID
 
@@ -1607,7 +1607,7 @@ class UserSettings
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1721,7 +1721,7 @@ class HttpRequester
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1849,7 +1849,7 @@ foreach ($shapes as $shape) {
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1900,7 +1900,7 @@ class Robot implements Employee
 
 **Լավ կոդ**
 
-Not every worker is an employee, but every employee is a worker.
+Ոչ բոլոր worker is an employee, but every employee is a worker.
 
 ```php
 interface Workable
@@ -1940,7 +1940,7 @@ class Robot implements Workable
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -2032,7 +2032,7 @@ class Manager
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ## Don’t repeat yourself (DRY)
 
@@ -2132,7 +2132,7 @@ function showList(array $employees): void
 }
 ```
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
 
 ## Այլ լեզուներով
 
@@ -2156,4 +2156,4 @@ function showList(array $employees): void
 * :kr: **Korean:**
    * [yujineeee/clean-code-php](https://github.com/yujineeee/clean-code-php)
 
-**[⬆ բաժիններ](#Բովանդակություն)**
+**[⬆ բաժիններ](#Բաժիններ)**
